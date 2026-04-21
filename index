@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puleng Mohapeloa - PR & Marketing Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-plum: #2D1B3D;
+            --warm-terracotta: #D4745E;
+            --soft-cream: #F9F5F0;
+            --rich-gold: #C9A961;
+            --charcoal: #3A3A3A;
+            --accent-coral: #E89580;
+            --light-grey: #E8E4DF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--soft-cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Decorative Header Element */
+        .top-accent {
+            height: 8px;
+            background: linear-gradient(90deg, var(--deep-plum) 0%, var(--warm-terracotta) 50%, var(--rich-gold) 100%);
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: scaleX(0); transform-origin: left; }
+            to { transform: scaleX(1); }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(249, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--light-grey);
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-plum);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--warm-terracotta);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--warm-terracotta);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-terracotta);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            color: var(--deep-plum);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            background: var(--deep-plum);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--warm-terracotta);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 116, 94, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--deep-plum);
+            border: 2px solid var(--deep-plum);
+        }
+
+        .btn-secondary:hover {
+            background: var(--deep-plum);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .feature-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(45, 27, 61, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--warm-terracotta), var(--rich-gold));
+        }
+
+        .feature-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--deep-plum);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+
+        .feature-list li::before {
+            content: '✦';
+            color: var(--warm-terracotta);
+            font-size: 1.2rem;
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-terracotta);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--deep-plum);
+            font-weight: 700;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(45, 27, 61, 0.06);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(45, 27, 61, 0.12);
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--warm-terracotta), var(--rich-gold));
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--deep-plum);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card h4 {
+            color: var(--warm-terracotta);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--light-grey);
+            border-radius: 20px;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .experience-card li {
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .experience-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--warm-terracotta);
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(45, 27, 61, 0.06);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .education-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .education-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--rich-gold), var(--warm-terracotta));
+        }
+
+        .education-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--deep-plum);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card h4 {
+            color: var(--warm-terracotta);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .education-date {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(45, 27, 61, 0.06);
+            animation: fadeInUp 0.8s ease-out both;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:nth-child(2) { animation-delay: 0.1s; }
+        .skill-category:nth-child(3) { animation-delay: 0.2s; }
+        .skill-category:nth-child(4) { animation-delay: 0.3s; }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(45, 27, 61, 0.12);
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--warm-terracotta), var(--accent-coral));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--deep-plum);
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 1rem;
+            background: var(--light-grey);
+            color: var(--charcoal);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--deep-plum);
+            color: white;
+            border-radius: 12px;
+            padding: 4rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--rich-gold);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 5%;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--warm-terracotta);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 4rem 5%;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll reveal animation trigger */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-accent"></div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">PM</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">PR & Marketing Professional</div>
+            <h1>Puleng Mohapeloa</h1>
+            <p class="hero-subtitle">
+                Transforming brands through strategic communication, creative content, 
+                and authentic media relations across Lesotho and beyond.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#experience" class="btn btn-secondary">View Experience</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="feature-box">
+                <h3>Building Connections</h3>
+                <ul class="feature-list">
+                    <li>Strategic Marketing Campaigns</li>
+                    <li>Compelling Content Creation</li>
+                    <li>Media Outreach & Relations</li>
+                    <li>Event Planning & Execution</li>
+                    <li>Crisis Communication</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <div class="section-label">Who I Am</div>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="experience-card">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--charcoal); text-align: center; max-width: 900px; margin: 0 auto;">
+                I'm an ambitious communications professional with hands-on experience in media outreach, 
+                content creation, and strategic marketing. With a Diploma in Public Relations from Limkokwing 
+                University and practical experience at People On The Move Radio, I bring a unique blend of 
+                creative thinking and data-driven strategy to every project. I'm passionate about crafting 
+                compelling narratives that resonate with audiences and drive meaningful engagement.
+            </p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-header">
+            <div class="section-label">Professional Journey</div>
+            <h2 class="section-title">Experience</h2>
+        </div>
+        <div class="experience-card">
+            <div class="experience-header">
+                <div>
+                    <h3>People On The Move Radio</h3>
+                    <h4>Marketing Assistant & Receptionist</h4>
+                </div>
+                <div class="experience-date">Feb 2021 - June 2024</div>
+            </div>
+            <ul>
+                <li>Developed and implemented comprehensive marketing campaigns to promote radio shows and events, increasing listener engagement and brand visibility</li>
+                <li>Provided exceptional customer service as primary receptionist, managing emails, walk-ins, registry, and phone communications with professionalism</li>
+                <li>Maintained accurate databases of client contacts and promotional materials, ensuring efficient information management and retrieval</li>
+                <li>Coordinated with marketing team to execute strategic outreach initiatives across multiple platforms</li>
+                <li>Streamlined reception processes to enhance operational efficiency and visitor experience</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-header">
+            <div class="section-label">Academic Background</div>
+            <h2 class="section-title">Education</h2>
+        </div>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3>Limkokwing University of Creative Technology</h3>
+                <h4>Diploma in Public Relations</h4>
+                <p class="education-date">2021 | PASS</p>
+            </div>
+            <div class="education-card">
+                <h3>Pitseng High School</h3>
+                <h4>LGCSE</h4>
+                <p class="education-date">2021 | PASS</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <div class="section-label">Core Competencies</div>
+            <h2 class="section-title">Skills & Expertise</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-icon">📱</div>
+                <h3>Marketing & Communications</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Email Marketing</span>
+                    <span class="skill-tag">Content Creation</span>
+                    <span class="skill-tag">Media Relations</span>
+                    <span class="skill-tag">Sales</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-icon">💼</div>
+                <h3>Strategic Planning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Event Planning</span>
+                    <span class="skill-tag">Crisis Communication</span>
+                    <span class="skill-tag">Data Analysis</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-icon">🎨</div>
+                <h3>Creative Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Adobe Creative Cloud</span>
+                    <span class="skill-tag">Microsoft Office</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-icon">⭐</div>
+                <h3>Professional Qualities</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Attention to Detail</span>
+                    <span class="skill-tag">Organization</span>
+                    <span class="skill-tag">Communication</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <h2>Let's Connect</h2>
+            <p>Ready to collaborate on your next project? I'd love to hear from you.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <a href="mailto:pulengmohapeloa@gmail.com">pulengmohapeloa@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <a href="tel:+26653329763">+266 5332 9763</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <a href="tel:+26663686624">+266 6368 6624</a>
+                </div>
+            </div>
+            <div style="margin-top: 2rem;">
+                <div class="contact-item" style="justify-content: center;">
+                    <div class="contact-icon">📍</div>
+                    <span>Sea-point P.O Box 1034, Maseru 100, Lesotho</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Puleng Mohapeloa. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7;">Built with passion for PR & Marketing excellence</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
